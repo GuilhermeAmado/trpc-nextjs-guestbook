@@ -8,15 +8,17 @@ export const guestbookRouter = createRouter()
       try {
         return await ctx.prisma.guestBook.findMany({
           select: {
+            id: true,
             name: true,
             message: true,
+            createdAt: true,
           },
           orderBy: {
             createdAt: 'desc',
           },
         });
       } catch (error) {
-        console.error(error);
+        console.log('error', error);
       }
     },
   })

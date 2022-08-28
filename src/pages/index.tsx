@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
+import MessagesList from '../components/MessagesList';
 import { trpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
@@ -32,6 +33,7 @@ const Home: NextPage = () => {
           <div>
             <p>Hello, {session.user?.name}</p>
             <button onClick={() => signOut()}>Sign Out</button>
+            <MessagesList />
           </div>
         )}
       </main>
