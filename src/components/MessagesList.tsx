@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Text } from '@chakra-ui/react';
+import { Avatar, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 import { trpc } from '../utils/trpc';
 
@@ -10,7 +10,7 @@ type MessageProps = {
 const Message = ({ name, message }: MessageProps) => {
   return (
     <Flex
-      width="400px"
+      maxWidth="540px"
       padding="8px 16px"
       border="1px solid"
       borderColor="gray.700"

@@ -18,13 +18,13 @@ const Header = (props: FlexProps) => {
       align="center"
       justify="space-between"
       wrap="wrap"
-      padding="1.5rem"
-      bg="teal.500"
+      padding="1rem 2rem"
+      bg="blue.900"
       color="white"
       {...props}
     >
       <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
+        <Heading as="h1" size="md" letterSpacing={'-.1rem'}>
           GuestBook
         </Heading>
       </Flex>
@@ -32,6 +32,7 @@ const Header = (props: FlexProps) => {
       <Box>
         {!session && (
           <Button
+            size="sm"
             bg="transparent"
             border="1px"
             onClick={() => signIn('github')}
@@ -45,8 +46,14 @@ const Header = (props: FlexProps) => {
             <Avatar
               name={session.user?.name ?? ''}
               src={session.user?.image ?? undefined}
+              size="sm"
             />
-            <Button bg="transparent" border="1px" onClick={() => signOut()}>
+            <Button
+              size="sm"
+              bg="transparent"
+              border="1px"
+              onClick={() => signOut()}
+            >
               Logout
             </Button>
           </Flex>
