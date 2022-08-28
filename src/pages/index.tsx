@@ -1,6 +1,8 @@
+import { Button } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
+import Header from '../components/Header';
 import MessagesList from '../components/MessagesList';
 import { trpc } from '../utils/trpc';
 
@@ -21,18 +23,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Guestbook</h1>
-        {!session && (
-          <div>
-            <button onClick={() => signIn('discord')}>
-              Login with Discord
-            </button>
-          </div>
-        )}
+        <Header />
         {session && (
           <div>
-            <p>Hello, {session.user?.name}</p>
-            <button onClick={() => signOut()}>Sign Out</button>
             <MessagesList />
           </div>
         )}
