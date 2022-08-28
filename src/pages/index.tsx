@@ -1,10 +1,9 @@
-import { Button } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 import Header from '../components/Header';
 import MessagesList from '../components/MessagesList';
-import { trpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
   const { data: session, status } = useSession();
@@ -25,9 +24,9 @@ const Home: NextPage = () => {
       <main>
         <Header />
         {session && (
-          <div>
+          <Box marginX="auto" marginY="32px" maxWidth="fit-content">
             <MessagesList />
-          </div>
+          </Box>
         )}
       </main>
     </>
